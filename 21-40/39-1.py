@@ -18,8 +18,8 @@ while True:
         position = names.index(enter_name_to_delete)
         names.pop(position)
         scores.pop(position)
-    if n==4:
+    if n == 4:
         print(names)
         print(scores)
-    if n==5:
+    if n == 5:
         break
