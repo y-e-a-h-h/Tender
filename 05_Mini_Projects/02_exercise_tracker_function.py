@@ -1,10 +1,9 @@
-def calc_total(*nums):
+def calc_total(nums):
     """
     计算总运动量（个）
-    :param nums: 每一天的运动量（可变参数）
+    :param nums: 每一天的运动量
     :return: 总运动量（个）
     """
-    # nums的数据类型是元祖，sum是内置函数，可以对元组中的数据求和
     return sum(nums)
 
 
@@ -31,5 +30,31 @@ def check_success(total, goal=120):
         return 'Sorry! Challenge failed!'
 
 
-def main(title, duration):
-    print(f'【{title}】【{duration}】challenge (Please enter the daily quantity)')
+def main(title, days, goal):
+    """
+    主函数，用于开始一场挑战赛
+    :param title: 比赛标题
+    :param days: 比赛持续天数
+    :param goal: 目标运动量
+    :return: None
+    """
+    print(f'【{title}】【{days}】challenge (Please enter the daily quantity)')
+
+
+# 定义一个nums列表，用于存储每天的健身数据
+    nums = []
+# 根据duration的值，循环让用户输入
+    for index in range(days):
+        nums.append(int(input(f'Please enter the {index + 1} day\'s data: ')))
+# 计算总数
+    total = calc_total(nums)
+# 计算平均值
+    avg = calc_avg(total, days)
+# 判断挑战是否成功
+    result = check_success(total, goal)
+# 打印相关信息
+    print(f'【{total}】【{days}】days exercise summary')
+    print(f'Total: {total}  Average: {avg:.2f}')
+    print(result)
+
+main('lit up', 8, 50)
