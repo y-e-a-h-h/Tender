@@ -1,4 +1,4 @@
-#定义函数时，使用*args(变量不一定非要用args,比如写*data也可以),将收到的多个参数，打包成一个元组
+# 定义函数时，使用*args(变量不一定非要用args,比如写*data也可以),将收到的多个参数，打包成一个元组
 def test(*args):  # 可变参数（*args）无论传入多少个参数都可以接受
     print(f'I\'m the test function, and the argument passed to me is: {args}', f'{type(args)}')
 
